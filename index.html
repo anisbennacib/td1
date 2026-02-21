@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TD01 — Modules Usuels de Matrices | 4ème SI</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--accent2:#3fb950;--accent3:#f78166;--accent4:#d2a8ff;--code-bg:#161b22;--code-border:#30363d;--tag-algo:rgba(88,166,255,0.15);--tag-algo-border:rgba(88,166,255,0.4);--tag-py:rgba(63,185,80,0.15);--tag-py-border:rgba(63,185,80,0.4);--num-bg:rgba(88,166,255,0.1);--header-bg:linear-gradient(135deg,#0d1117,#161b22);}
+/* === Thème automatique selon le système === */
+:root{--bg:#f5f7fa;--bg2:#fff;--bg3:#eef1f5;--border:#d0d7de;--text:#1f2328;--text-muted:#656d76;--accent:#0969da;--accent2:#1a7f37;--accent3:#cf222e;--accent4:#8250df;--code-bg:#f6f8fa;--code-border:#d0d7de;--tag-algo:rgba(9,105,218,0.1);--tag-algo-border:rgba(9,105,218,0.3);--tag-py:rgba(26,127,55,0.1);--tag-py-border:rgba(26,127,55,0.3);--num-bg:rgba(9,105,218,0.08);--header-bg:linear-gradient(135deg,#f0f4ff,#fff);}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--accent2:#3fb950;--accent3:#f78166;--accent4:#d2a8ff;--code-bg:#161b22;--code-border:#30363d;--tag-algo:rgba(88,166,255,0.15);--tag-algo-border:rgba(88,166,255,0.4);--tag-py:rgba(63,185,80,0.15);--tag-py-border:rgba(63,185,80,0.4);--num-bg:rgba(88,166,255,0.1);--header-bg:linear-gradient(135deg,#0d1117,#161b22);}}
+/* Overrides manuels via data-theme */
 :root[data-theme="light"]{--bg:#f5f7fa;--bg2:#fff;--bg3:#eef1f5;--border:#d0d7de;--text:#1f2328;--text-muted:#656d76;--accent:#0969da;--accent2:#1a7f37;--accent3:#cf222e;--accent4:#8250df;--code-bg:#f6f8fa;--code-border:#d0d7de;--tag-algo:rgba(9,105,218,0.1);--tag-algo-border:rgba(9,105,218,0.3);--tag-py:rgba(26,127,55,0.1);--tag-py-border:rgba(26,127,55,0.3);--num-bg:rgba(9,105,218,0.08);--header-bg:linear-gradient(135deg,#f0f4ff,#fff);}
+:root[data-theme="dark"]{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;--text:#e6edf3;--text-muted:#8b949e;--accent:#58a6ff;--accent2:#3fb950;--accent3:#f78166;--accent4:#d2a8ff;--code-bg:#161b22;--code-border:#30363d;--tag-algo:rgba(88,166,255,0.15);--tag-algo-border:rgba(88,166,255,0.4);--tag-py:rgba(63,185,80,0.15);--tag-py-border:rgba(63,185,80,0.4);--num-bg:rgba(88,166,255,0.1);--header-bg:linear-gradient(135deg,#0d1117,#161b22);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:"Sora",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
 header{background:var(--header-bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);}
@@ -95,20 +99,10 @@ table{width:100%;border-collapse:collapse;font-size:12px;border:1px solid var(--
 th{background:var(--bg3);padding:7px 12px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border);}
 td{padding:7px 12px;border-top:1px solid var(--border);color:var(--text);font-family:"JetBrains Mono",monospace;font-size:11.5px;}
 tr:hover td{background:var(--bg3);}
-.kw{color:var(--accent3);font-weight:600;}
-.kw2{color:var(--accent);}
-.fn{color:var(--accent4);}
-.type{color:#f2cc60;}
-.num{color:#f2cc60;}
-.op{color:var(--accent3);}
+.kw{font-weight:600;}
 .cm{color:var(--text-muted);font-style:italic;}
-.py-kw{color:#ff7b72;font-weight:600;}
-.py-fn{color:#d2a8ff;}
-.py-builtin{color:#79c0ff;}
-.py-str{color:#a5d6ff;}
-.py-num{color:#f2cc60;}
-.py-cm{color:#8b949e;font-style:italic;}
-.py-op{color:#ff7b72;}
+.py-cm{font-style:italic;}
+.num{color:#f2cc60;}
 :root[data-theme="light"] .kw{color:#cf222e;}
 :root[data-theme="light"] .kw2{color:#0550ae;}
 :root[data-theme="light"] .fn{color:#8250df;}
@@ -1766,11 +1760,32 @@ tr:hover td{background:var(--bg3);}
   </main>
 </div>
 <script>
-function setTheme(t) {
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('darkBtn').classList.toggle('active', t === 'dark');
-  document.getElementById('lightBtn').classList.toggle('active', t === 'light');
+function getSystemTheme() {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
+function setTheme(t) {
+  if (t === 'auto') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', t);
+  }
+  const effective = t === 'auto' ? getSystemTheme() : t;
+  document.getElementById('darkBtn').classList.toggle('active', effective === 'dark');
+  document.getElementById('lightBtn').classList.toggle('active', effective === 'light');
+}
+// Init buttons on load
+(function() {
+  const sys = getSystemTheme();
+  document.getElementById('darkBtn').classList.toggle('active', sys === 'dark');
+  document.getElementById('lightBtn').classList.toggle('active', sys === 'light');
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!document.documentElement.hasAttribute('data-theme')) {
+      document.getElementById('darkBtn').classList.toggle('active', e.matches);
+      document.getElementById('lightBtn').classList.toggle('active', !e.matches);
+    }
+  });
+})();
 
 function toggleEx(header) {
   const body = header.nextElementSibling;
