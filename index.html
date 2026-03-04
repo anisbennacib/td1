@@ -191,10 +191,7 @@ tr:hover td{background:var(--bg3);}
     border-radius: 0;
   }
   .sidebar.open { transform: translateX(0); }
-  .sidebar-card { border-radius: 10px; }
-
-  /* Burger button */
-  .burger-btn {
+  .sidebar-card { border-radius: 10px; }.burger-btn {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,19 +215,6 @@ tr:hover td{background:var(--bg3);}
     backdrop-filter: blur(2px);
   }
   .sidebar-overlay.open { display: block; }
-
-  /* Close button inside sidebar */
-  .sidebar-close {
-    position: absolute;
-    top: 14px; right: 14px;
-    width: 32px; height: 32px;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex; align-items: center; justify-content: center;
-  }
 
   /* Main content */
   main { min-width: 0; width: 100%; }
@@ -262,6 +246,21 @@ tr:hover td{background:var(--bg3);}
   /* Tables */
   table { font-size: 11px; }
   th, td { padding: 5px 8px; }
+
+  /* Close button — mobile only */
+  .sidebar-close {
+    display: flex !important;
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 32px; height: 32px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* ── Mobile small (≤ 480px) ── */
@@ -293,10 +292,7 @@ tr:hover td{background:var(--bg3);}
 
 /* Burger hidden on desktop */
 .burger-btn { display: none; }
-
-
-
-
+.sidebar-close { display: none; }
 /* mots-clés struct : rouge */
 /* mots-clés ctrl  : bleu  */
 /* fonctions       : violet */
